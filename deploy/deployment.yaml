@@ -2,7 +2,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: freenas-nfs-provisioner
+  name: freenas-iscsi-provisioner
   namespace: kube-system
 spec:
   replicas: 1
@@ -11,11 +11,11 @@ spec:
   template:
     metadata:
       labels:
-        app: freenas-nfs-provisioner
+        app: freenas-iscsi-provisioner
     spec:
-      serviceAccountName: freenas-nfs-provisioner
+      serviceAccountName: freenas-iscsi-provisioner
       containers:
-        - name: freenas-nfs-provisioner
+        - name: freenas-iscsi-provisioner
           image: docker.io/nmaupu/freenas-provisioner:2.0
           env:
             #- name: IDENTIFIER
